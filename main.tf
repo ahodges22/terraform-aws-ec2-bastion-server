@@ -105,6 +105,10 @@ resource "aws_instance" "default" {
     encrypted   = var.root_block_device_encrypted
     volume_size = var.root_block_device_volume_size
   }
+    
+  lifecycle {
+    ignore_changes = [ami]
+  }
 }
 
 module "dns" {
